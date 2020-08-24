@@ -13,9 +13,10 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 
 var googleSheetsUrl = "https://notmahi.github.io/bd-rt-dashboard/static/rt_bd_june_7_web.csv";
 
-const Rt_url = "https://cs.nyu.edu/~nms572/covid/latest/rt_bangladesh.json" + Date.now();
+const today = new Date().toJSON().slice(0,10).replace(/-/g,'');
+const Rt_url = "https://cs.nyu.edu/~nms572/covid/latest/rt_bangladesh.json?" + today;
 const popUrl = "https://notmahi.github.io/bd-rt-dashboard/static/bd_population.json";
-const caseHistoryUrl = "https://cs.nyu.edu/~nms572/covid/latest/bd_case_history.json" + Date.now();
+const caseHistoryUrl = "https://cs.nyu.edu/~nms572/covid/latest/bd_case_history.json?" + today;
 
 function handle_rt_data(response) {
     const rtData = response;
